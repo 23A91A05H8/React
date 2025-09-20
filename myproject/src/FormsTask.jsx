@@ -32,7 +32,6 @@ const FormsTask = () =>{
         </div>
       </form>
       <button onClick={Fun}>Add Data</button>
-{/* tsgdtrujyguikuo */}
       <div className="parent">
         {Data.map((ele, index) => (
           <div key={index} className="child">
@@ -45,5 +44,6 @@ const FormsTask = () =>{
     </>
   );
 }
+// expoorthfvb jjfirktriokro
 
 export default FormsTask;
