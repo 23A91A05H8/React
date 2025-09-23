@@ -159,12 +159,13 @@
 // export default App;
 
 
-import FormsTask from "./FormsTask";
+// import FormsTask from "./FormsTask";
+import UseEffect from "./UseEffect";
 function App() {
   return (
     <>
       <h1>Welcome</h1>
-      <FormsTask />
+      <UseEffect />
     </>
   );
 }
