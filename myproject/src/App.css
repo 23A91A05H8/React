@@ -1,12 +1,66 @@
-.parent{
+/* General body styles */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  height: 100vh;            /* full viewport height */
   display: flex;
-  gap: 5px;
-  margin: 20px;
+  justify-content: center;   /* horizontal center */
+  align-items: center;       /* vertical center */
+  background-color: #f4f6f9;
 }
 
-.child {
-  padding: 20px;
-  border: 2px solid black;
-  border-radius: 2px;
-  text-align: center;
+/* Container for search + cards */
+.container {
+  display: flex;
+  flex-direction: column;   /* stack search + cards vertically */
+  align-items: center;      /* center horizontally */
+  gap: 20px;                /* spacing between search and cards */
+}
+
+/* Search input styling */
+input[type="text"] {
+  width: 300px;
+  padding: 10px 15px;
+  font-size: 16px;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+input[type="text"]:focus {
+  border-color: black;
+}
+
+/* Parent container for cards */
+.parent {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+}
+
+/* Card styling */
+.card {
+  background: white;
+  border: 2px solid #ddd;
+  border-radius: 12px;
+  width: 150px;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  font-size: 18px;
+  color: #333;
+  box-shadow: 2px 2px 6px rgba(0,0,0,0.1);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Card hover effect */
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 4px 6px 12px rgba(0,0,0,0.2);
+  cursor: pointer;
 }

@@ -160,16 +160,26 @@
 
 
 // import FormsTask from "./FormsTask";
-import UseEffect from "./UseEffect";
+// import UseEffect from "./UseEffect";
+// function App() {
+//   return (
+//     <>
+//       <h1>Welcome</h1>
+//       <UseEffect />
+//     </>
+//   );
+// }
+
+// export default App
+
+import "./App.css";
+import SearchCard from "./SearchCard";
 function App() {
   return (
     <>
-      <h1>Welcome</h1>
-      <UseEffect />
+      <SearchCard />
     </>
   );
 }
 
-export default App;
-
-
+export default App
