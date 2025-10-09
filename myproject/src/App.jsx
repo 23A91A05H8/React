@@ -172,14 +172,173 @@
 
 // export default App
 
+// import "./App.css";
+// import SearchCard from "./SearchCard";
+// function App() {
+//   return (
+//     <>
+//       <SearchCard />
+//     </>
+//   );
+// }
+
+// export default App
+
+// import "./App.css";
+// import task_us_uf from "./task_us_uf";
+// function App(){
+//   return (
+//     <>
+//     <h1>Welcome</h1>
+//     <task_us_uf />
+//     </>
+//   );
+// }
+
+
+// import React, { useState, useEffect } from "react";
+
+// function App() {
+//   const [tasks, setTasks] = useState([]);
+//   const [newTask, setNewTask] = useState("");
+//   const [editIndex, setEditIndex] = useState(null);
+
+//   // Load tasks from localStorage (optional persistence)
+//   useEffect(() => {
+//     const saved = JSON.parse(localStorage.getItem("tasks"));
+//     if (saved) setTasks(saved);
+//   }, []);
+
+//   // Save tasks to localStorage whenever tasks change
+//   useEffect(() => {
+//     localStorage.setItem("tasks", JSON.stringify(tasks));
+//   }, [tasks]);
+
+//   // Add or update task
+//   const handleAddOrUpdate = () => {
+//     if (!newTask.trim()) return;
+
+//     if (editIndex !== null) {
+//       // Update existing task
+//       const updated = [...tasks];
+//       updated[editIndex].text = newTask;
+//       setTasks(updated);
+//       setEditIndex(null);
+//     } else {
+//       // Add new task
+//       setTasks([...tasks, { text: newTask, completed: false }]);
+//     }
+
+//     setNewTask("");
+//   };
+
+//   // Toggle complete/incomplete
+//   const toggleComplete = (index) => {
+//     const updated = [...tasks];
+//     updated[index].completed = !updated[index].completed;
+//     setTasks(updated);
+//   };
+
+//   // Delete task
+//   const deleteTask = (index) => {
+//     const updated = tasks.filter((_, i) => i !== index);
+//     setTasks(updated);
+//   };
+
+//   // Edit task
+//   const editTask = (index) => {
+//     setNewTask(tasks[index].text);
+//     setEditIndex(index);
+//   };
+
+//   return (
+//     <div className="p-6 max-w-md mx-auto bg-gray-100 rounded-xl shadow-lg">
+//       <h1 className="text-2xl font-bold mb-4">Todo List</h1>
+
+//       {/* Input and Add/Update button */}
+//       <div className="flex mb-4">
+//         <input
+//           type="text"
+//           value={newTask}
+//           onChange={(e) => setNewTask(e.target.value)}
+//           placeholder="Enter task..."
+//           className="flex-1 border p-2 rounded"
+//         />
+//         <button
+//           onClick={handleAddOrUpdate}
+//           className="ml-2 bg-blue-500 text-white px-4 py-2 rounded"
+//         >
+//           {editIndex !== null ? "Update" : "Add"}
+//         </button>
+//       </div>
+
+//       {/* Task list */}
+//       <ul>
+//         {tasks.map((task, index) => (
+//           <li
+//             key={index}
+//             className="flex items-center justify-between bg-white p-2 mb-2 rounded shadow"
+//           >
+//             <div className="flex items-center">
+//               <input
+//                 type="checkbox"
+//                 checked={task.completed}
+//                 onChange={() => toggleComplete(index)}
+//                 className="mr-2"
+//               />
+//               <span
+//                 className={task.completed ? "line-through text-gray-500" : ""}
+//               >
+//                 {task.text}
+//               </span>
+//             </div>
+//             <div>
+//               <button
+//                 onClick={() => editTask(index)}
+//                 className="mr-2 text-yellow-500"
+//               >
+//                 ✏
+//               </button>
+//               <button
+//                 onClick={() => deleteTask(index)}
+//                 className="text-red-500"
+//               >
+//                 🗑
+//               </button>
+//             </div>
+//           </li>
+//         ))}
+//       </ul>
+//     </div>
+//   );
+// }
+
+// export default App;
+
+
+
+import reactLogo from "./assets/react.svg";
+import viteLogo from "/vite.svg";
 import "./App.css";
-import SearchCard from "./SearchCard";
+import { useState, useEffect } from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Page1 from "./Page1";
+import Page2 from "./Page2";
+import Store from "./Store";
 function App() {
+  const [Count ,setCount] = useState(0)
   return (
     <>
-      <SearchCard />
+    <Store.Provider value={{Count,setCount}}>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Page1 />} />
+          <Route path="/page2" element={<Page2 />} />
+        </Routes>
+      </BrowserRouter>
+    </Store.Provider>
     </>
   );
 }
 
-export default App
+export default App;
