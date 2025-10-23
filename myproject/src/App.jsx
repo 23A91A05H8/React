@@ -317,28 +317,189 @@
 
 
 
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
-import "./App.css";
-import { useState, useEffect } from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Page1 from "./Page1";
-import Page2 from "./Page2";
-import Store from "./Store";
+// import reactLogo from "./assets/react.svg";
+// import viteLogo from "/vite.svg";
+// import "./App.css";
+// import { useState, useEffect } from "react";
+// import { BrowserRouter, Routes, Route } from "react-router-dom";
+// import Page1 from "./Page1";
+// import Page2 from "./Page2";
+// import Store from "./Store";
+// function App() {
+//   const [Count ,setCount] = useState(0)
+//   return (
+//     <>
+//     <Store.Provider value={{Count,setCount}}>
+//       <BrowserRouter>
+//         <Routes>
+//           <Route path="/" element={<Page1 />} />
+//           <Route path="/page2" element={<Page2 />} />
+//         </Routes>
+//       </BrowserRouter>
+//     </Store.Provider>
+//     </>
+//   );
+// }
+
+// export default App;
+
+
+
+
+// import React, { useState } from "react";
+// import "./App.css";
+
+// export default function App() {
+//   const [view, setView] = useState("none");
+//   const [data, setData] = useState([]);
+//   const [form, setForm] = useState({
+//     name: "",
+//     brand: "",
+//     price: "",
+//     description: "",
+//     image: "",
+//   });
+//   const [message, setMessage] = useState("");
+
+//   const handleChange = (e) => {
+//     const { name, value } = e.target;
+//     setForm({ ...form, [name]: value });
+//   };
+
+//   const handleImage = (e) => {
+//     const file = e.target.files[0];
+//     if (file) {
+//       const reader = new FileReader();
+//       reader.onloadend = () => {
+//         setForm({ ...form, image: reader.result });
+//       };
+//       reader.readAsDataURL(file);
+//     }
+//   };
+
+//   const handleUpload = (e) => {
+//     e.preventDefault();
+//     if (!form.name || !form.brand || !form.price) {
+//       setMessage("Please fill all required fields!");
+//       return;
+//     }
+//     setData([...data, form]);
+//     setForm({ name: "", brand: "", price: "", description: "", image: "" });
+//     setMessage("Details are updated!");
+//   };
+
+//   const handleClear = () => {
+//     setForm({ name: "", brand: "", price: "", description: "", image: "" });
+//     setMessage("Form cleared!");
+//   };
+
+//   return (
+//     <div className="app-container">
+//       <header className="header">
+//         <div className="buttons">
+//           <button
+//             className={view === "add" ? "active" : ""}
+//             onClick={() => setView("add")}
+//           >
+//             Add Data
+//           </button>
+//           <button
+//             className={view === "view" ? "active" : ""}
+//             onClick={() => setView("view")}
+//           >
+//             View Data
+//           </button>
+//         </div>
+//       </header>
+
+//       {message && <p className="message">{message}</p>}
+
+//       {view === "add" && (
+//         <div className="form-container">
+//           <form onSubmit={handleUpload}>
+//             <label>Name:</label>
+//             <input
+//               type="text"
+//               name="name"
+//               value={form.name}
+//               onChange={handleChange}
+//               placeholder="Enter product name"
+//               required
+//             />
+
+//             <label>Brand:</label>
+//             <input
+//               type="text"
+//               name="brand"
+//               value={form.brand}
+//               onChange={handleChange}
+//               placeholder="Enter brand name"
+//               required
+//             />
+
+//             <label>Price:</label>
+//             <input
+//               type="number"
+//               name="price"
+//               value={form.price}
+//               onChange={handleChange}
+//               placeholder="Enter price"
+//               required
+//             />
+
+//             <label>Description:</label>
+//             <textarea
+//               name="description"
+//               value={form.description}
+//               onChange={handleChange}
+//               placeholder="Enter description"
+//               rows="3"
+//             ></textarea>
+
+//             <label>Image:</label>
+//             <input type="file" accept="image/*" onChange={handleImage} />
+
+//             <div className="form-buttons">
+//               <button type="submit" className="upload">
+//                 Upload
+//               </button>
+//               <button type="button" onClick={handleClear} className="clear">
+//                 Clear
+//               </button>
+//             </div>
+//           </form>
+//         </div>
+//       )}
+
+//       {view === "view" && (
+//         <div className="cards-container">
+//           {data.length === 0 ? (
+//             <p className="no-data">No data available.</p>
+//           ) : (
+//             data.map((item, index) => (
+//               <div className="card" key={index}>
+//                 {item.image && (
+//                   <img src={item.image} alt={item.name} className="card-img" />
+//                 )}
+//                 <h3>{item.brand}</h3>
+//                 <p>₹{item.price}</p>
+//               </div>
+//             ))
+//           )}
+//         </div>
+//       )}
+//     </div>
+//   );
+// }
+
+
+
+
+import React from "react";
+import Dashboard from "./Dashboard";
+
 function App() {
-  const [Count ,setCount] = useState(0)
-  return (
-    <>
-    <Store.Provider value={{Count,setCount}}>
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Page1 />} />
-          <Route path="/page2" element={<Page2 />} />
-        </Routes>
-      </BrowserRouter>
-    </Store.Provider>
-    </>
-  );
+  return <Dashboard />;
 }
 
 export default App;
